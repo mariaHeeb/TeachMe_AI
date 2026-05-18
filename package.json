@@ -1,0 +1,16 @@
+{
+  "name": "teachme-ai",
+  "version": "1.0.0",
+  "description": "Professional live AI classroom with Gemini voice turns and animated student avatars.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}

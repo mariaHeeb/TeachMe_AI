@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TeachMe AI — Live Classroom</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <meta name="description" content="TeachMe AI — Practice teaching with AI-powered student avatars in a live classroom." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       SCREEN 1 — LANDING PAGE
+  ═══════════════════════════════════════ -->
+  <div id="loginScreen" class="login-screen">
+
+    <!-- Fixed ambient background (stays put while page scrolls) -->
+    <div class="lp-bg-fixed" aria-hidden="true">
+      <div class="login-stars" id="loginStars"></div>
+      <div class="login-orb orb-purple"></div>
+      <div class="login-orb orb-blue"></div>
+      <div class="login-orb orb-teal"></div>
+    </div>
+
+    <!-- ── STICKY NAVBAR ─────────────────────── -->
+    <nav class="lp-nav">
+      <div class="lp-nav-brand">
+        <span class="nav-logo">🎓</span>
+        <span class="nav-wordmark">TeachMe AI</span>
+        <span class="nav-chip">Beta</span>
+      </div>
+      <div class="lp-nav-right">
+        <button class="lp-nav-link js-open-about" id="openAboutBtn">About</button>
+        <button class="lp-nav-cta js-start">Start Teaching →</button>
+      </div>
+    </nav>
+
+    <!-- ── HERO ──────────────────────────────── -->
+    <section class="lp-hero">
+      <div class="lp-container lp-hero-inner">
+
+        <div class="lp-hero-text">
+          <div class="hero-badge"><span class="hero-badge-dot"></span>AI-Powered Teaching Practice</div>
+          <h1 class="hero-title">Practice teaching<br>with live AI students</h1>
+          <p class="hero-sub">Speak naturally. Ten animated students listen, react, raise hands, and reply based on exactly what you said — powered by Google Gemini.</p>
+          <div class="lp-hero-actions">
+            <button class="lp-btn-primary js-start">Start Teaching →</button>
+            <a class="lp-btn-ghost" href="#lp-how">See how it works ↓</a>
+          </div>
+          <div class="lp-trust-row">
+            <span>✓ Free to try</span>
+            <span>✓ No setup required</span>
+            <span>✓ Works in your browser</span>
+          </div>
+        </div>
+
+        <div class="lp-hero-card">
+          <div class="login-card" id="loginCard">
+            <div class="card-brand">
+              <span class="card-brand-icon">🎓</span>
+              <span class="card-brand-name">TeachMe AI</span>
+            </div>
+            <p class="login-subtitle">Sign in to start your session</p>
+
+            <div class="login-tabs">
+              <button class="login-tab active" data-tab="signin">Sign In</button>
+              <button class="login-tab" data-tab="signup">Sign Up</button>
+            </div>
+
+            <form class="login-form active" data-form="signin" id="signinForm" novalidate>
+              <div class="form-field">
+                <input type="email" placeholder="Email address" autocomplete="email" />
+              </div>
+              <div class="form-field">
+                <input type="password" placeholder="Password" />
+              </div>
+              <button type="submit" class="enter-btn">Continue →</button>
+            </form>
+
+            <form class="login-form" data-form="signup" id="signupForm" novalidate>
+              <div class="form-field">
+                <input type="text" placeholder="Your name" autocomplete="name" />
+              </div>
+              <div class="form-field">
+                <input type="email" placeholder="Email address" autocomplete="email" />
+              </div>
+              <div class="form-field">
+                <input type="password" placeholder="Create a password" />
+              </div>
+              <button type="submit" class="enter-btn">Create Account →</button>
+            </form>
+
+            <p class="login-card-footer">By continuing you agree to use this app responsibly.</p>
+          </div>
+          <p class="lp-guest-line">or <button class="lp-guest-btn js-start">continue as guest</button></p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PROBLEM ────────────────────────────── -->
+    <section class="lp-section lp-alt" id="lp-problem">
+      <div class="lp-container">
+        <div class="lp-section-eyebrow">The Challenge</div>
+        <h2 class="lp-section-title">Studying alone has its limits.</h2>
+        <p class="lp-section-sub">Many students prepare for exams by standing in their room pretending to teach an imaginary class. The method is sound — but without a real audience, it falls short.</p>
+        <div class="lp-problem-grid">
+          <div class="lp-problem-card">
+            <div class="lp-problem-icon">🔇</div>
+            <h3>No reactions</h3>
+            <p>Nobody nods, looks confused, or signals whether your explanation actually landed.</p>
+          </div>
+          <div class="lp-problem-card">
+            <div class="lp-problem-icon">❓</div>
+            <h3>No questions</h3>
+            <p>No one asks the follow-up that reveals the gap in your understanding.</p>
+          </div>
+          <div class="lp-problem-card">
+            <div class="lp-problem-icon">😶</div>
+            <h3>No feedback</h3>
+            <p>You finish and have no idea if your explanation made sense — or where it broke down.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SOLUTION ───────────────────────────── -->
+    <section class="lp-section" id="lp-solution">
+      <div class="lp-container">
+        <div class="lp-solution-inner">
+          <div class="lp-solution-text">
+            <div class="lp-section-eyebrow">The Solution</div>
+            <h2 class="lp-section-title">A classroom that listens back.</h2>
+            <p class="lp-section-sub">TeachMe AI gives you a virtual classroom with 10 unique AI students. They listen to what you say, respond in real time, and ask the questions a real student would ask.</p>
+            <ul class="lp-solution-list">
+              <li><span class="lp-check">✓</span>Students raise hands and ask topic-specific questions</li>
+              <li><span class="lp-check">✓</span>Reactions are based on what you just said — not random</li>
+              <li><span class="lp-check">✓</span>Powered by Google Gemini for natural, context-aware replies</li>
+              <li><span class="lp-check">✓</span>10 students with unique voices, personalities, and moods</li>
+            </ul>
+          </div>
+          <div class="lp-solution-stats">
+            <div class="lp-sol-stat">
+              <strong>10</strong>
+              <span>AI students</span>
+            </div>
+            <div class="lp-sol-stat">
+              <strong>Real-time</strong>
+              <span>Reactions</span>
+            </div>
+            <div class="lp-sol-stat">
+              <strong>Gemini</strong>
+              <span>Powered</span>
+            </div>
+            <div class="lp-sol-stat">
+              <strong>Any</strong>
+              <span>Topic</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HOW IT WORKS ───────────────────────── -->
+    <section class="lp-section lp-alt" id="lp-how">
+      <div class="lp-container">
+        <div class="lp-section-eyebrow">Process</div>
+        <h2 class="lp-section-title">How it works</h2>
+        <p class="lp-section-sub">Four steps from sign-in to your first live AI classroom session.</p>
+        <div class="lp-steps">
+          <div class="lp-step">
+            <div class="lp-step-num">01</div>
+            <div class="lp-step-icon">📚</div>
+            <h3>Choose your topic</h3>
+            <p>Enter any subject — the Water Cycle, Fractions, World War II — and the classroom adapts instantly.</p>
+          </div>
+          <div class="lp-step">
+            <div class="lp-step-num">02</div>
+            <div class="lp-step-icon">📎</div>
+            <h3>Add materials</h3>
+            <p>Optionally upload notes, PDFs, or slides. AI students will ask questions grounded in your material.</p>
+          </div>
+          <div class="lp-step">
+            <div class="lp-step-num">03</div>
+            <div class="lp-step-icon">🏫</div>
+            <h3>Start the classroom</h3>
+            <p>Press the microphone and begin teaching. Ten animated students are ready and listening.</p>
+          </div>
+          <div class="lp-step">
+            <div class="lp-step-num">04</div>
+            <div class="lp-step-icon">🤖</div>
+            <h3>Teach and respond</h3>
+            <p>Students raise hands, ask relevant questions, and react based on exactly what you said.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHO IT HELPS ───────────────────────── -->
+    <section class="lp-section" id="lp-who">
+      <div class="lp-container">
+        <div class="lp-section-eyebrow">Audience</div>
+        <h2 class="lp-section-title">Who uses TeachMe AI</h2>
+        <div class="lp-who-grid">
+          <div class="lp-who-card">
+            <div class="lp-who-icon">🎓</div>
+            <h3>Students</h3>
+            <p>Use the Feynman Technique with a real AI audience. Find gaps in your understanding before the exam does.</p>
+          </div>
+          <div class="lp-who-card">
+            <div class="lp-who-icon">👩‍🏫</div>
+            <h3>Future Teachers</h3>
+            <p>Practice explaining complex topics clearly before stepping into a real classroom. Build confidence early.</p>
+          </div>
+          <div class="lp-who-card">
+            <div class="lp-who-icon">🧠</div>
+            <h3>Active Learners</h3>
+            <p>If you learn best by teaching, TeachMe AI gives you an audience that pushes you to go deeper.</p>
+          </div>
+          <div class="lp-who-card">
+            <div class="lp-who-icon">🎤</div>
+            <h3>Presenters</h3>
+            <p>Rehearse in front of an AI audience and find which parts of your talk need more clarity.</p>
+          </div>
+          <div class="lp-who-card">
+            <div class="lp-who-icon">💡</div>
+            <h3>Curious Minds</h3>
+            <p>Anyone who wants a more engaging, less solitary way to explore a subject they care about.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FEATURES ───────────────────────────── -->
+    <section class="lp-section lp-alt" id="lp-features">
+      <div class="lp-container">
+        <div class="lp-section-eyebrow">Capabilities</div>
+        <h2 class="lp-section-title">Everything you need to practice teaching</h2>
+        <div class="lp-feat-grid">
+          <div class="lp-feat-card">
+            <div class="lp-feat-icon">🎙️</div>
+            <h3>Voice-driven lessons</h3>
+            <p>Speak naturally. Real-time speech recognition captures every word and routes it to the AI students.</p>
+          </div>
+          <div class="lp-feat-card">
+            <div class="lp-feat-icon">🤖</div>
+            <h3>AI student questions</h3>
+            <p>Powered by Google Gemini. Students ask contextual, topic-specific follow-ups based on what you said.</p>
+          </div>
+          <div class="lp-feat-card">
+            <div class="lp-feat-icon">🏫</div>
+            <h3>Interactive classroom</h3>
+            <p>10 animated students with individual personalities, voices, and moods bring the room to life.</p>
+          </div>
+          <div class="lp-feat-card">
+            <div class="lp-feat-icon">👋</div>
+            <h3>Live student reactions</h3>
+            <p>Students raise hands, show thinking animations, lean toward speakers, and display visible reactions.</p>
+          </div>
+          <div class="lp-feat-card">
+            <div class="lp-feat-icon">💬</div>
+            <h3>Topic-based discussion</h3>
+            <p>Every question stays grounded in your specific lesson — never generic, always relevant.</p>
+          </div>
+          <div class="lp-feat-card">
+            <div class="lp-feat-icon">📎</div>
+            <h3>Material upload</h3>
+            <p>Upload notes, PDFs, or slides. The AI classroom uses your materials to ask deeper questions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CREATOR ────────────────────────────── -->
+    <section class="lp-section" id="lp-creator">
+      <div class="lp-container lp-creator-wrap">
+        <div class="lp-creator-card">
+          <div class="lp-creator-avatar">MH</div>
+          <div class="lp-creator-info">
+            <div class="lp-section-eyebrow" style="margin-bottom:6px">Creator</div>
+            <h3 class="lp-creator-name">Maria Heeb</h3>
+            <p class="lp-creator-role">Creator &amp; Developer</p>
+            <p class="lp-creator-bio">Concept, idea, and full development by Maria Heeb. TeachMe AI was built to make studying more engaging, interactive, and effective for everyone who learns by teaching.</p>
+            <button class="lp-creator-about js-open-about">Read the full story →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FINAL CTA ──────────────────────────── -->
+    <section class="lp-final-cta">
+      <div class="lp-container lp-cta-inner">
+        <h2 class="lp-cta-title">Ready to teach your first lesson?</h2>
+        <p class="lp-cta-sub">Join learners who practice teaching with AI — and understand their subjects more deeply because of it.</p>
+        <button class="lp-btn-primary lp-cta-btn js-start">Start Teaching →</button>
+        <p class="lp-cta-note">Free to try · No credit card required · Works in your browser</p>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ─────────────────────────────── -->
+    <footer class="lp-footer">
+      <div class="lp-container lp-footer-inner">
+        <div class="lp-footer-brand">
+          <span>🎓</span>
+          <span>TeachMe AI</span>
+        </div>
+        <p class="lp-footer-copy">© 2025 TeachMe AI · Created by Maria Heeb · Powered by Google Gemini</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SCREEN 2 — SESSION SETUP
+  ═══════════════════════════════════════ -->
+  <div id="setupScreen" class="setup-screen hidden">
+    <div class="login-stars" id="setupStars"></div>
+    <div class="login-orb orb-purple"></div>
+    <div class="login-orb orb-blue"></div>
+    <div class="login-orb orb-teal"></div>
+
+    <div class="setup-card">
+
+      <!-- Go Back -->
+      <button class="setup-back-btn" id="setupBackBtn" aria-label="Go back to home">← Back</button>
+
+      <!-- Step indicator -->
+      <div class="step-indicator">
+        <div class="step step-done">
+          <div class="step-circle">✓</div>
+          <span>Sign In</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step step-active">
+          <div class="step-circle">2</div>
+          <span>Lesson Setup</span>
+        </div>
+        <div class="step-line step-line-dim"></div>
+        <div class="step step-upcoming">
+          <div class="step-circle">3</div>
+          <span>Classroom</span>
+        </div>
+      </div>
+
+      <!-- Header -->
+      <div class="setup-header">
+        <h2 class="setup-title">Set Up Your Lesson</h2>
+        <p class="setup-subtitle">Tell us what you're teaching today — students will respond based on your topic.</p>
+      </div>
+
+      <!-- Topic input -->
+      <div class="setup-section">
+        <label class="setup-label" for="topicInput">
+          <span class="label-icon">📚</span>
+          Lesson Topic <span class="label-required">required</span>
+        </label>
+        <div class="topic-input-wrap">
+          <input
+            id="topicInput"
+            type="text"
+            class="topic-input"
+            placeholder="e.g. The Solar System, World War II, Fractions…"
+            maxlength="80"
+            autocomplete="off"
+          />
+          <span class="char-count"><span id="charCount">0</span>/80</span>
+        </div>
+        <div class="topic-suggestions">
+          <span class="suggestion-label">Quick pick</span>
+          <div class="suggestion-chips">
+            <button class="suggestion-chip" data-topic="The Water Cycle">The Water Cycle</button>
+            <button class="suggestion-chip" data-topic="Photosynthesis">Photosynthesis</button>
+            <button class="suggestion-chip" data-topic="World War II">World War II</button>
+            <button class="suggestion-chip" data-topic="Fractions">Fractions</button>
+            <button class="suggestion-chip" data-topic="The Solar System">The Solar System</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- File upload -->
+      <div class="setup-section">
+        <label class="setup-label">
+          <span class="label-icon">📎</span>
+          Supporting Materials
+          <span class="label-optional">optional</span>
+        </label>
+
+        <div class="drop-zone" id="dropZone" role="button" tabindex="0"
+             aria-label="Upload files by dropping them here or clicking to browse">
+          <div class="drop-zone-inner">
+            <div class="drop-icon">📂</div>
+            <div class="drop-text">
+              <div class="drop-main">Drag &amp; drop files here</div>
+              <div class="drop-sub">or <span class="browse-trigger">browse to upload</span> &nbsp;·&nbsp; <span class="drop-hint">PDFs, images, Word docs</span></div>
+            </div>
+          </div>
+          <input type="file" id="fileInput" multiple hidden
+                 accept=".pdf,.doc,.docx,.txt,.ppt,.pptx,.png,.jpg,.jpeg,.webp,.gif" />
+        </div>
+
+        <ul class="file-list" id="fileList" aria-label="Uploaded files"></ul>
+      </div>
+
+      <!-- CTA -->
+      <div class="setup-footer">
+        <button id="startClassBtn" class="start-class-btn" disabled>
+          Start Class 🚀
+        </button>
+        <p class="setup-note">Students are ready and waiting in the classroom 🎓</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SCREEN 3 — CLASSROOM APP
+  ═══════════════════════════════════════ -->
+  <div id="appScreen" class="app-screen hidden">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-icon">🎓</span>
+        <span class="brand-name">TeachMe AI</span>
+      </div>
+
+      <div class="topbar-center">
+        <button class="topic-chip" id="topicButton">
+          📚 <span id="topicLabel">The Water Cycle</span>
+        </button>
+      </div>
+
+      <div class="topbar-right">
+        <div class="timer-badge">⏱ <strong id="timerText">0:00</strong></div>
+        <div class="live-badge"><span class="live-dot"></span>Session Live</div>
+        <button class="end-btn" id="endButton">⏹ End Session</button>
+      </div>
+    </header>
+
+    <!-- Classroom -->
+    <div class="classroom-container">
+
+      <div class="classroom-scene" aria-hidden="true">
+        <div class="scene-sky">
+          <div class="cloud cloud-a"></div>
+          <div class="cloud cloud-b"></div>
+          <div class="cloud cloud-c"></div>
+        </div>
+
+        <div class="scene-wall">
+          <div class="bunting-line" id="buntingLine"></div>
+
+          <div class="room-window win-left">
+            <div class="curtain curt-l"></div>
+            <div class="curtain curt-r"></div>
+            <div class="win-pane"></div>
+          </div>
+
+          <div class="chalkboard">
+            <div class="board-inner">
+              <div class="board-label">TODAY'S TOPIC</div>
+              <h2 class="board-topic" id="boardTopic">The Water Cycle</h2>
+              <p class="board-hint">Explain clearly · Use examples · Answer questions</p>
+            </div>
+            <div class="chalk-tray">
+              <div class="chalk chalk-white"></div>
+              <div class="chalk chalk-yellow"></div>
+              <div class="chalk chalk-pink"></div>
+            </div>
+          </div>
+
+          <div class="room-window win-right">
+            <div class="curtain curt-l"></div>
+            <div class="curtain curt-r"></div>
+            <div class="win-pane"></div>
+          </div>
+        </div>
+
+        <div class="scene-floor"></div>
+      </div>
+
+      <section class="students-stage" id="studentsStage" aria-label="Classroom students">
+        <div class="student-row back-row"  id="backRow"></div>
+        <div class="student-row mid-row"   id="midRow"></div>
+        <div class="student-row front-row" id="frontRow"></div>
+      </section>
+    </div>
+
+    <!-- Control panel -->
+    <section class="control-panel">
+      <button id="micButton" class="mic-btn" aria-label="Toggle microphone">🎙️</button>
+
+      <div class="level-meter" id="levelMeter" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="status-panel">
+        <div class="status-main">
+          <span class="status-dot" id="statusDot"></span>
+          <strong id="mainStatus">Ready — press the microphone</strong>
+        </div>
+        <p id="subStatus">Students will listen after you press the mic.</p>
+        <p id="heardLine" class="heard-line"></p>
+      </div>
+
+      <label class="sensitivity-wrap">
+        <span>Sensitivity</span>
+        <select id="sensitivitySelect">
+          <option value="balanced" selected>Balanced</option>
+          <option value="sensitive">Sensitive</option>
+          <option value="quiet">Quiet room</option>
+        </select>
+      </label>
+
+      <div class="panel-btns">
+        <button id="askButton" class="panel-btn">Ask</button>
+        <button id="openLogButton" class="panel-btn">📋 Log</button>
+      </div>
+    </section>
+
+    <!-- Activity log -->
+    <aside id="activityPanel" class="activity-panel" aria-label="Class log">
+      <header>
+        <h3>Class Activity</h3>
+        <button id="closeLogButton" aria-label="Close log">×</button>
+      </header>
+      <div id="activityList" class="activity-list"></div>
+    </aside>
+
+    <!-- Topic change modal -->
+    <div id="topicModal" class="topic-modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="topicModalTitle">
+      <div class="topic-modal-card">
+        <h3 class="topic-modal-title" id="topicModalTitle">Edit Lesson Topic</h3>
+        <p class="topic-modal-sub">Update what your students are responding to today.</p>
+        <input type="text" id="topicModalInput" class="topic-modal-input" maxlength="80" autocomplete="off" placeholder="e.g. The Solar System, Fractions…" />
+        <div class="topic-modal-actions">
+          <button class="topic-modal-cancel" id="topicModalCancel">Cancel</button>
+          <button class="topic-modal-save"   id="topicModalSave">Update Topic</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- End-session modal -->
+    <div id="endModal" class="end-overlay" role="dialog" aria-modal="true">
+      <div class="end-card">
+        <div class="end-icon">🏫</div>
+        <h2>End of Session</h2>
+        <p class="end-sub">What would you like to do?</p>
+        <div id="endStats" class="end-stats"></div>
+        <div class="end-choices">
+          <button id="btnContinue"   class="choice-btn choice-continue">▶ Continue This Session</button>
+          <button id="btnNewSession" class="choice-btn choice-new">🔄 Start a New Session</button>
+          <button id="btnGoHome"     class="choice-btn choice-home">🏠 Go to Home Page</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       ABOUT PAGE OVERLAY
+  ═══════════════════════════════════════ -->
+  <div id="aboutScreen" class="about-screen hidden">
+    <div class="login-stars" id="aboutStars"></div>
+    <div class="login-orb orb-purple"></div>
+    <div class="login-orb orb-blue"></div>
+    <div class="login-orb orb-teal"></div>
+
+    <div class="about-scroll">
+      <div class="about-container">
+
+        <!-- Top nav -->
+        <nav class="about-nav">
+          <div class="about-nav-brand">
+            <span>🎓</span>
+            <span>TeachMe AI</span>
+          </div>
+          <button class="about-back-btn" id="aboutBackBtn">← Back to Home</button>
+        </nav>
+
+        <!-- Hero -->
+        <section class="about-hero-section">
+          <div class="hero-badge"><span class="hero-badge-dot"></span>About the App</div>
+          <h1 class="about-main-title">About <span class="about-title-accent">TeachMe AI</span></h1>
+          <p class="about-tagline">An interactive AI classroom that makes learning feel alive, engaging, and genuinely effective.</p>
+        </section>
+
+        <!-- Intro -->
+        <div class="about-intro-card">
+          <p>TeachMe AI is an interactive AI classroom app designed to help people practice explaining what they know in a more active, engaging, and realistic way.</p>
+        </div>
+
+        <!-- Why section -->
+        <section class="about-section">
+          <h2 class="about-section-heading">
+            <span class="section-heading-icon">💡</span>
+            Why TeachMe AI?
+          </h2>
+          <div class="about-glass-card">
+            <p>Many students prepare for exams by standing in their room and pretending to teach material to an imaginary class. Explaining a topic out loud genuinely strengthens understanding — but it quickly becomes monotonous when there are no real students, no questions, no reactions, and no one to point out what's unclear or incomplete.</p>
+            <div class="about-highlight-bar">
+              TeachMe AI was created to solve exactly this problem.
+            </div>
+            <p>The app gives users a virtual classroom of AI students who listen, react, raise their hands, and ask relevant questions based on the lesson. Instead of repeating information alone, users practice teaching in front of an interactive class — improving their understanding, confidence, and explanation skills with every session.</p>
+          </div>
+        </section>
+
+        <!-- Creator -->
+        <section class="about-section">
+          <h2 class="about-section-heading">
+            <span class="section-heading-icon">✨</span>
+            Creator
+          </h2>
+          <div class="about-creator-card">
+            <div class="creator-avatar-circle">MH</div>
+            <div class="creator-details">
+              <h3 class="creator-name">Maria Heeb</h3>
+              <p class="creator-title">Creator &amp; Developer</p>
+              <p class="creator-bio">Concept, idea, and development by Maria Heeb.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Future Vision -->
+        <section class="about-section">
+          <h2 class="about-section-heading">
+            <span class="section-heading-icon">🚀</span>
+            Future Vision
+          </h2>
+          <div class="about-glass-card">
+            <p>TeachMe AI is just getting started. The vision is to grow into a full practice platform that serves learners, educators, and communicators at every level.</p>
+            <div class="about-vision-grid">
+              <div class="about-vision-item">
+                <div class="vision-icon">📊</div>
+                <h3>Session analytics</h3>
+                <p>Track clarity, pacing, and depth across sessions — see how your teaching improves over time.</p>
+              </div>
+              <div class="about-vision-item">
+                <div class="vision-icon">🌍</div>
+                <h3>Multilingual classrooms</h3>
+                <p>Students who ask questions in your language — expanding access to learners around the world.</p>
+              </div>
+              <div class="about-vision-item">
+                <div class="vision-icon">🏆</div>
+                <h3>Curriculum integration</h3>
+                <p>Pre-built lesson packs aligned to school curricula, so teachers can drop TeachMe AI straight into lessons.</p>
+              </div>
+              <div class="about-vision-item">
+                <div class="vision-icon">🤝</div>
+                <h3>Collaborative sessions</h3>
+                <p>Two teachers, one classroom — co-teach with a friend or colleague and see how your explanations complement each other.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <section class="about-cta-section">
+          <p class="about-cta-quote">"The goal of TeachMe AI is to make learning feel more alive, practical, and supportive."</p>
+          <button class="enter-btn about-cta-btn" id="aboutGetStartedBtn">Get Started →</button>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

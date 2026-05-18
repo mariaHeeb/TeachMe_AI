@@ -1,0 +1,8 @@
+.gemini_key
+node_modules/
+.DS_Store
+.env
+**/.env
+gemini_key.txt
+promo-video/*.mp4
+.claude/
