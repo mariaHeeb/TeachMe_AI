@@ -1,63 +1,61 @@
-# TeachMe AI — Clean Pro Classroom
+# TeachMeAI — AI-Powered Virtual Classroom
 
-This is the organized version of the project.
+TeachMeAI is an AI-powered virtual classroom app created and developed by **Maria Heeb**.
 
-## Run on Windows
+The app helps users practice teaching and explaining any topic to interactive AI students. Instead of studying alone or only repeating material out loud, users can enter a virtual classroom where AI students listen, react, raise their hands, and ask relevant questions based on the lesson topic.
 
-1. Install Node.js if you do not already have it.
-2. Open this folder in VS Code.
-3. Open VS Code terminal.
-4. Run:
+## Why I Built This Project
 
-```powershell
-npm install
-node server.js
-```
+Many students study by pretending they are teaching someone. This method can help with understanding, but it often feels limited because there is no real interaction, no questions, and no feedback.
 
-5. Open:
+I created TeachMeAI to make this learning method more interactive, realistic, and useful.
 
-```text
-http://localhost:8060
-```
+The goal is to help users:
+- understand material better by explaining it out loud
+- build confidence while speaking
+- practice presentations in a safe environment
+- prepare for exams in a more active way
+- help future teachers practice explaining lessons
+- improve communication and teaching skills
 
-## Easier run
+## Main Features
 
-Double-click:
+- Interactive AI classroom
+- Lesson topic setup
+- AI students with different personalities
+- Students react, raise hands, and ask questions
+- Voice-based teaching experience
+- Topic-focused student responses
+- End-of-session summary
+- Professional landing page and About page
+- Responsive dark purple/blue design
 
-```text
-RUN_ME.bat
-```
+## Tech Stack
 
-## Gemini API key
+- HTML
+- CSS
+- JavaScript
+- Node.js
+- Express.js
+- Google Gemini API
+- Claude Code was used as a development assistant during the building process
 
-Do not paste your Gemini key into HTML, CSS, or JavaScript.
-
-Use:
-
-```text
-RESET_GEMINI_KEY.bat
-```
-
-The key is saved only locally in:
-
-```text
-.gemini_key
-```
-
-## Main files
+## Project Structure
 
 ```text
-server.js                 backend + Gemini API
-public/index.html          page structure
-public/css/styles.css      professional classroom design
-public/js/config.js        app settings and student data
-public/js/students.js      animated student rendering
-public/js/audio.js         microphone and voice-turn capture
-public/js/app.js           main app behavior
-```
-
-## Notes
-
-- The mic captures one full teacher sentence after you pause.
-- Students blink, breathe, raise hands, and move their mouths while speaking.
-- If Gemini shows a quota error, the microphone may still be working; Gemini is just refusing requests temporarily.
+TeachMeAI
+├── public
+│   ├── index.html
+│   ├── css
+│   │   └── styles.css
+│   └── js
+│       ├── app.js
+│       ├── audio.js
+│       ├── config.js
+│       └── students.js
+├── server.js
+├── package.json
+├── package-lock.json
+├── .env.example
+├── .gitignore
+└── README.md
